@@ -24,7 +24,6 @@ else
     exit 1
 fi
 
-
 template_source="/root/bin/template.tex.template"
 
 if [ ! -f "$template_source" ]; then
@@ -39,8 +38,7 @@ else
     echo "failed to copy file"
     exit 1
 fi
-
-build "$final_target_file"
+build "$final_target_file" 
 
 if [ $? -eq 0 ]; then
     exit 0

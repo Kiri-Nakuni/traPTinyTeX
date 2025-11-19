@@ -2,16 +2,17 @@
 %何か追加してほしいパッケージがあれば、tlmgr installでインストールして、docker commitで反映するか、
 %@Suima(traQ)あるいは@662607015_i_s_t(Twitter(X))、kirinakuni@gmail.comのいずれかまで連絡ください。
 
-\RequirePackage{plautopatch}
+\RequirePackage{plautopatch}%uplatexの問題を自動で修正するパッチ。これのおかげで闇鍋が成立します。
 \documentclass[a4paper,12pt,dvipdfmx]{jsarticle}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage{otf}
+\usepackage[uplatex,deluxe]{otf}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{latexsym}
 \usepackage{mathtools}
 \usepackage{ascmac}
 \usepackage{fancybox}
+\usepackage{etoolbox}
 \usepackage{tikz}
 \usepackage{chemfig}
 \usepackage[%
@@ -31,9 +32,8 @@
 \usephysicsmodule{ab}
 \usepackage{cmathbb}
 \usepackage{wrapfig}
-\usepackage{ulem}
+\usepackage[normalem]{ulem}
 \usepackage{titlepic}
-\usepackage{xparse}
 \usepackage[dvipsnames,x11names]{xcolor}
 \usepackage{mathrsfs}
 \usepackage{bm}
@@ -63,6 +63,18 @@
 \usepackage{titlesec}
 \usepackage{multicol}
 \usepackage{float}
+\usepackage{minted}
+\setminted{
+    frame=lines,
+    fontfamily=tt,
+    framesep=2mm,
+    baselinestretch=1.2,
+    linenos,
+    breaklines,
+    escapeinside=||
+}
+\usemintedstyle{vs}
+\usepackage{pythontex}
 \bxtexlogoimport{*,**}
 \author{科学 太郎}
 \title{凄そうなタイトル}
@@ -75,5 +87,30 @@
 説得力のあるアブストラクト
 \end{abstract}
 \section{良い感じの節名}
-偉大な記事
+偉大な記事と素晴らしい数式:\eqref{eq:great}。そして、難解なプログラム:\ref{lst:powerful}
+
+
+PDFをCtrl+左クリックすると、たいていの場合はソースの対応する場所に飛べます。超技術！
+(mintedの近く=ソースコードの近くだとダメな場合がありますが。)
+\begin{equation}
+3^{10}=\py{3**10}\label{eq:great}
+\end{equation}
+\begin{listing}[H]
+\begin{minted}[linenos]{c}
+# include <stdio.h>
+
+int main(void) {
+    printf("Hello, world!\n");
+    return 0;//ああ、因みにlstlistingとmintedを同時に使うと、
+}//Listingのカウントが|\textcolor{red}{被る}|から気をつけて
+\end{minted}
+\caption{強烈なプログラム}
+\label{lst:powerful}
+
+
+\begin{lstlisting}[caption={奇妙なプログラム}, language=Python]
+def hello():
+    print("Hello, world!")
+\end{lstlisting}
+\end{listing}
 \end{document}
