@@ -1,0 +1,79 @@
+% このテンプレートに書いてあるパッケージは全て動作することを確認しています。
+%何か追加してほしいパッケージがあれば、tlmgr installでインストールして、docker commitで反映するか、
+%@Suima(traQ)あるいは@662607015_i_s_t(Twitter(X))、kirinakuni@gmail.comのいずれかまで連絡ください。
+
+\RequirePackage{plautopatch}
+\documentclass[a4paper,12pt,dvipdfmx]{jsarticle}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{otf}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{latexsym}
+\usepackage{mathtools}
+\usepackage{ascmac}
+\usepackage{fancybox}
+\usepackage{tikz}
+\usepackage{chemfig}
+\usepackage[%
+  unicode,%
+  bookmarksnumbered,%
+  hidelinks,%
+  setpagesize=false,
+]{hyperref}
+\usetikzlibrary{calc,arrows,patterns,backgrounds,positioning,%
+  fit,graphs,through,trees,plotmarks}
+\usepackage{tcolorbox}
+\tcbuselibrary{xparse,breakable,documentation,listings}
+\usepackage[version=4]{mhchem}
+\usepackage{physics2}
+\usepackage{bxtexlogo}
+\usephysicsmodule{xmat}
+\usephysicsmodule{ab}
+\usepackage{cmathbb}
+\usepackage{wrapfig}
+\usepackage{ulem}
+\usepackage{titlepic}
+\usepackage{xparse}
+\usepackage[dvipsnames,x11names]{xcolor}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{listings,jvlisting}
+\usepackage{siunitx}
+\usepackage{circuitikz}
+\lstset{
+  basicstyle={\ttfamily},%
+  identifierstyle={\small},%
+  commentstyle={\smallitshape},%
+  keywordstyle={\small\bfseries},%
+  ndkeywordstyle={\small},%
+  stringstyle={\small\ttfamily},%
+  frame={tb},%
+  breaklines=true,%
+  columns=[l]{fullflexible},%
+  numbers=left,%
+  xrightmargin=0zw,%
+  xleftmargin=3zw,%
+  numberstyle={\scriptsize},%
+  stepnumber=1,%
+  numbersep=1zw,%
+  lineskip=-0.5ex,%
+}
+\usepackage[figure,table]{totalcount}
+\usepackage[top=20truemm,bottom=20truemm,left=20truemm,right=20truemm]{geometry}
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{float}
+\bxtexlogoimport{*,**}
+\author{科学 太郎}
+\title{凄そうなタイトル}
+\date{良さそうな日付}
+
+%ここまでをプリアンブルと言います。何か設定を書き加えたければ、ここまでに書きましょう
+\begin{document}
+\maketitle
+\begin{abstract}
+説得力のあるアブストラクト
+\end{abstract}
+\section{良い感じの節名}
+偉大な記事
+\end{document}

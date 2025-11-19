@@ -1,0 +1,4 @@
+コピーしたいファイル名をfugaとします。(homeからの相対パス)
+ホストOSのシェル(Windows Power Shell 等)で
+docker cp hoge:/home/fuga .
+とすると、欲しいファイルがカレントディレクトリにコピーされます。
