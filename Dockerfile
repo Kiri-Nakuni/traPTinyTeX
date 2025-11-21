@@ -26,9 +26,10 @@ RUN wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz && \
     rm -rf install-tl-* install-tl-unx.tar.gz
 RUN mkdir -p /usr/share/fonts/truetype/hackgen
 RUN mkdir -p /opt/texlive/texmf-local/fonts/truetype/hackgen/
-COPY ./hackgen/* /opt/texlive/texmf-local/fonts/truetype/hackgen/*
-COPY ./hackgen/*    /usr/share/fonts/truetype/hackgen/*
+COPY ./hackgen/ /opt/texlive/texmf-local/fonts/truetype/hackgen/
+COPY ./hackgen/    /usr/share/fonts/truetype/hackgen/
 RUN fc-cache -fv
-RUN mktexfmt uplatex.fmt
 RUN tlmgr update --self
 RUN tlmgr install $(cat /tmp/texlive.packages)
+RUN mktexfmt uplatex
+RUN mktexfmt lualatex

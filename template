@@ -3,13 +3,16 @@ if [ -z "$1" ]; then
     echo "no file name"
     exit 1
 fi
+target_file="$1"
+base="${target_file%.*}"
+ext="${target_file##*.}"
+
 ID=$(cat /proc/self/cgroup | grep 'cpu' | cut -d/ -f3 | cut -c 1-12 | head -n 1)
 cp "/root/bin/help.txt.help" "help.txt"
 sed -i "s!hoge!$ID!g" help.txt
-target_file="$1"
+sed -i "s!fuga!${base}.pdf!g" help.txt
 
-base="${target_file%.*}"
-ext="${target_file##*.}"
+
 if [ "$target_file" = "$base" ] && [ "${target_file#*.}" = "$target_file" ]; then
     final_target_file="${target_file}.tex"
 

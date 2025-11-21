@@ -23,6 +23,17 @@
                         "name": "latexmk_uplatex",
                         "command": "latexmk", 
                         "args": [
+                            "-pdfdvi",
+                            "-silent",
+                            "%DOC%"
+                        ]
+                    },
+                    {
+                        "name": "latexmk_lualatex",
+                        "command": "latexmk",
+                        "args": [
+                            "-pdflua",
+                            "-silent",
                             "%DOC%"
                         ]
                     }
