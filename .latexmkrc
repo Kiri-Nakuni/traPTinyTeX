@@ -1,12 +1,11 @@
-$latex = 'uplatex -synctex=1 -shell-escape -interaction=batchmode -file-line-error %O %S';
-$lualatex = 'lualatex -synctex=1 -shell-escape -interaction=batchmode -file-line-error %O %S'; 
+$latex = 'uplatex -synctex=1 -shell-escape -file-line-error %O %S';
+$lualatex = 'lualatex -synctex=1 -shell-escape -file-line-error %O %S'; 
 $bibtex = 'bibtexu %O %B';
 $makeindex = 'upmendex %O -o %D %S';
-$pdf_mode = 3;
 $dvipdf = 'dvipdfmx %O -o %D %S';
 $max_repeat = 10;
 $ENV{"LANG"} = "ja_JP.UTF-8";
-$out_dir = 'pdf_out';
+$out_dir = 'out_dir';
 # for PythonTeX
 $clean_ext .= " pythontex-files-%R/* pythontex-files-%R";
 push @generated_exts, 'pytxcode', 'nav', 'snm', 'vrb', 'pyg', 'listing';
