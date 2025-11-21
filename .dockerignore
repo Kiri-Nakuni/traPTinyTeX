@@ -2,3 +2,10 @@
 .gitignore
 .git
 .devcontainer
+hackgen/
+build_uplatex
+help.txt
+template
+template.tex
+templatelua
+templatelua.tex

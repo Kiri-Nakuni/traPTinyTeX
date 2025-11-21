@@ -1,12 +1,7 @@
 以下の記述はVSCodeユーザー向けのものです。
 
 まずは、Ctrl+@を押してシェルを起動し、
-template <ファイル名>.tex
+templateatc <ファイル名>.tex
 としましょう。
 
-因みになんですが、texliveにHackGenを認識させているので、.latexmkrc編集してLuaTeXに切り替えれば、割と簡単にHackGenをTeXで使えます。
-デフォ設定だと無理です。おい～。
-
-LuaTeXくん、研究室だと使えないことあるからね。仕方ないね。
-
-まあ隠し機能として(隠せていない) templatelua <ファイル名>.tex があるんですが
+実行したいときはatctex <ファイル名>してください。

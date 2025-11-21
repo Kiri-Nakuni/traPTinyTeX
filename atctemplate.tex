@@ -1,0 +1,14 @@
+%ABC430
+\def\E#1 #2 #3 #4;{\def\A{#1} \def\B{#2} \def\C{#3} \def\D{#4}}
+\read-1to\L
+\expandafter\E\L;
+\ifnum\C<\A
+  \immediate\write16{No}
+\else
+  \ifnum\B>\D
+    \immediate\write16{Yes}
+  \else
+    \immediate\write16{No}
+  \fi
+\fi
+\end

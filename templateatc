@@ -1,0 +1,48 @@
+#!/bin/sh
+if [ -z "$1" ]; then
+    echo "no file name"
+    exit 1
+fi
+target_file="$1"
+base="${target_file%.*}"
+ext="${target_file##*.}"
+
+
+if [ "$target_file" = "$base" ] && [ "${target_file#*.}" = "$target_file" ]; then
+    final_target_file="${target_file}.tex"
+
+elif [ "$target_file" != "$base" ] && [ -f "$target_file" ]; then
+    final_target_file="$target_file"
+
+elif [ "$target_file" != "$base" ] && [ ! -f "$target_file" ]; then
+    final_target_file="${base}.tex"
+
+else
+    echo "invalid file name"
+    exit 1
+fi
+
+template_source="/root/bin/atctemplate.tex.template"
+
+if [ ! -f "$template_source" ]; then
+    echo "template file is not found"
+    exit 1
+fi
+
+cp "$template_source" "$final_target_file"
+if [ $? -eq 0 ]; then
+    echo "template file copied successfully"
+else
+    echo "failed to copy file"
+    exit 1
+fi
+echo "ABC430"
+echo "test case 1"
+echo "stdin:10 20 30 40"
+echo 10 20 30 40 | atctex "$final_target_file" 
+
+if [ $? -eq 0 ]; then
+    exit 0
+else
+    exit 1
+fi

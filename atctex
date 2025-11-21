@@ -1,0 +1,17 @@
+#!/bin/sh
+
+if [ -z "$1" ]; then
+  echo "Usage: atctex <filename.tex>"
+  exit 1
+fi
+
+FILENAME="$1"
+BASENAME="${FILENAME%.*}"
+
+export max_print_line=2147483647
+
+tex "$FILENAME" | head -n -3 | sed -e "1d;2s@^(\./${BASENAME}.tex@@"
+
+rm -f "$BASENAME.dvi" "$BASENAME.log"
+
+exit 0
