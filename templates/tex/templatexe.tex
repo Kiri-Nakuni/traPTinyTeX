@@ -1,0 +1,111 @@
+% このテンプレートに書いてあるパッケージは全て動作することを確認しています。
+%何か追加してほしいパッケージがあれば、tlmgr installでインストールして、docker commitで反映するか、
+%@Suima(traQ)あるいは@662607015_i_s_t(Twitter(X))、kirinakuni@gmail.comのいずれかまで連絡ください。
+\documentclass[a4paper,xelatex,12pt,ja=standard]{bxjsarticle}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{latexsym}
+\usepackage{mathtools}
+\usepackage[version=4]{mhchem}
+\usepackage{physics2}
+\usephysicsmodule{xmat}
+\usephysicsmodule{ab}
+\usepackage{cmathbb}
+\usepackage{siunitx}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{ascmac}
+\usepackage{fancybox}
+\usepackage[dvipsnames,x11names]{xcolor}
+\usepackage{tikz}
+\usepackage{chemfig}
+\usepackage{circuitikz}
+\usepackage{tcolorbox}
+\usepackage{wrapfig}
+\usepackage[normalem]{ulem}
+\usepackage{titlepic}
+\usepackage{bxtexlogo}
+\usetikzlibrary{calc,arrows,patterns,backgrounds,positioning,%
+  fit,graphs,through,trees,plotmarks}
+\tcbuselibrary{xparse,breakable,documentation,listings}
+\bxtexlogoimport{*,**}
+\usepackage{etoolbox}
+\usepackage[figure,table]{totalcount}
+\geometry{top=20truemm,bottom=20truemm,left=20truemm,right=20truemm}
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{listings} 
+\lstset{
+  basicstyle={\ttfamily},
+  identifierstyle={\small},
+  commentstyle={\small\itshape}
+  keywordstyle={\small\bfseries},
+  ndkeywordstyle={\small},
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},
+  numbers=left,
+  xrightmargin=0em,
+  xleftmargin=3em,
+  numberstyle={\scriptsize},
+  stepnumber=1,
+  numbersep=1em,
+  lineskip=-0.5ex,
+}
+\usepackage{minted}
+\setminted{
+    frame=lines,
+    fontfamily=tt,
+    framesep=2mm,
+    baselinestretch=1.2,
+    linenos,
+    breaklines,
+    escapeinside=||,
+    showspaces=true
+}
+\usemintedstyle{vs}
+\usepackage{pythontex}
+\usepackage{hyperref}
+\hypersetup{hidelinks,bookmarksnumbered}
+\setmonofont[BoldFont = HackGen-Bold.ttf]{HackGen-Regular.ttf}
+\setCJKmonofont[BoldFont = HackGen-Bold.ttf]{HackGen-Regular.ttf}
+\author{科学 太郎}
+\title{凄そうなタイトル}
+\date{良さそうな日付}
+
+%ここまでをプリアンブルと言います。何か設定を書き加えたければ、ここまでに書きましょう
+\begin{document}
+\maketitle
+\begin{abstract}
+説得力のあるアブストラクト
+\end{abstract}
+\section{良い感じの節名}
+偉大な記事と素晴らしい数式:\eqref{eq:great}。そして、難解なプログラム:\ref{lst:powerful}
+
+
+PDFをCtrl+左クリックすると、たいていの場合はソースの対応する場所に飛べます。超技術！
+(mintedの近く=ソースコードの近くだとダメな場合がありますが。)
+\begin{equation}
+3^{10}=\py{3**10}\label{eq:great}
+\end{equation}
+\begin{listing}[H]
+\begin{minted}[linenos]{c}
+# include <stdio.h>
+
+int main(void) {
+    printf("Hello, world!\n");
+    return 0;//ああ、因みにlstlistingとmintedを同時に使うと、
+}//Listingのカウントが|\textcolor{red}{被る}|から気をつけて
+\end{minted}
+\caption{強烈なプログラム}
+\label{lst:powerful}
+
+
+\begin{lstlisting}[caption={奇妙なプログラム}, language=Python]
+def hello():
+    print("Hello, world!")
+\end{lstlisting}
+\end{listing}
+\end{document}

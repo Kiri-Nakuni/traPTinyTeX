@@ -1,5 +1,6 @@
 $latex = 'uplatex -synctex=1 -shell-escape -file-line-error %O %S';
-$lualatex = 'lualatex -synctex=1 -shell-escape -file-line-error %O %S'; 
+$lualatex = 'lualatex -synctex=1 -shell-escape -file-line-error %O %S';
+$xelatex = 'xelatex -synctex=1 -shell-escape -file-line-error %O %S';
 $bibtex = 'bibtexu %O %B';
 $makeindex = 'upmendex %O -o %D %S';
 $dvipdf = 'dvipdfmx %O -o %D %S';

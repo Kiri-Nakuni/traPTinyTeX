@@ -36,13 +36,34 @@
                             "-silent",
                             "%DOC%"
                         ]
+                    },
+                    {
+                        "name": "latexmk_xelatex",
+                        "command":"latexmk",
+                        "args":[
+                            "-pdfxe",
+                            "-silent",
+                            "%DOC%"
+                        ]
                     }
                 ],
                 "latex-workshop.latex.recipes": [
                     {
-                        "name": "Compile with uplatex",
+                        "name": "Compile with upLaTeX",
                         "tools": [
                             "latexmk_uplatex"
+                        ]
+                    },
+                    {
+                        "name": "Build with LuaLaTeX",
+                        "tools":[
+                            "latexmk_lualatex"
+                        ]
+                    },
+                    {
+                        "name": "Build with XeLaTeX",
+                        "tools": [
+                            "latexmk_xelatex"
                         ]
                     }
                 ],

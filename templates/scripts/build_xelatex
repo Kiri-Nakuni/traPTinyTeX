@@ -1,0 +1,21 @@
+#!/bin/sh
+if [ -z "$1" ];then
+        echo "no file name"
+        exit 1
+fi
+filename="$1"
+base="${filename%.*}"
+logfile="${base}_latexmk.log"
+latexmk -pdfxe -silent "$1" > /dev/null
+if [ $? -eq 0 ];then
+        exit 0
+fi
+latexmk -gg -pdfxe "$1" -f > /dev/null
+if [ $? -eq 0 ];then
+        exit 0
+fi
+
+latexmk -gg -pdfxe "$1" -f >"$logfile" 2>&1
+echo "fatal error occured."
+
+exit 1
