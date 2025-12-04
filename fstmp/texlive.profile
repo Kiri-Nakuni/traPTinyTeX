@@ -41,6 +41,7 @@ option_post_code 1
 option_w32_multi_user 1
 option_write18_restricted 1
 portable 0
-
-# --- System Integration (PATHはDockerfileで設定するので不要) ---
-option_path 0
+option_path 1
+tlpdbopt_create_formats 1
+tlpdbopt_install_docfiles 0
+tlpdbopt_install_srcfiles 0

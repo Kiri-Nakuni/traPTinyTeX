@@ -1,6 +1,6 @@
 {
     "name": "TrapTinyTeX LaTeX Environment",
-    "image": "kininakuni/traptinytex:latest",
+    "image": "kininakuni/traptinytex:full",
     "workspaceFolder": "/home",
     "customizations": {
         "vscode": {
