@@ -2,17 +2,13 @@
 
 DATA="1. TeXエンジンとは？|TeXコードを実行するインタプリタのことです。\
 TeXエンジンによって、それぞれ独自拡張があるので、区別する必要があります。
-2. TeXエンジンの種類は？|このシステムでは、e-upTeX, LuaTeX, XeTeX, \
-pdfTeXが使えます。
+2. TeXエンジンの種類は？|このシステムでは、e-upTeXが使えます。
 3. どうやって実行するの？|このシステムでは、build <filename>とすると\
-upLaTeX, buildlua <filename>とするとLuaLaTeX, buildxe <filename>\
-とするとXeLaTeXでビルドが実行されます
+upLaTeXでビルドが実行されます
 4. e-upTeXとupLaTeXの違いは？|e-upTeX上に、予めLaTeXという\
 マクロパッケージを読み込んだものがupLaTeXです。他のTeXエンジンでも同様です。
 5. テンプレートはどこから得られますか？|template <filename>とすると\
-upLaTeX用の、templatelua <filename>とするとLualatex用の、\
-templatexe <filename>とするとXeLaTeX用の日本語\
-テンプレートが出力されます。使い方はtemplateのそれと全て同じです。
+upLaTeX用の日本語テンプレートが出力されます。
 6. .latexmkrcって何？|LaTeX用のTeXソースは、複数回のビルドが必要なことが\
 多いですが、それを適切な回数こなしてくれるスクリプトであるlatexmkの設定\
 ファイルです。"

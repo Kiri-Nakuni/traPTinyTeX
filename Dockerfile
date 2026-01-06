@@ -1,22 +1,19 @@
 FROM alpine:latest
-RUN apk add --no-cache perl wget fontconfig ca-certificates python3 py3-pip py3-pygments ncurses fzf
-COPY ./fstmp/ /tmp/
-COPY ./hackgen/ /opt/texlive/texmf-local/fonts/truetype/hackgen/
-ENV PATH="/root/bin:${PATH}"
-# 3. TeX Liveのインストール（変更頻度：低・処理時間：長）
-#    PATHの設定を考慮し、/usr/local/bin 等へのシンボリックリンク作成をインストーラに任せる設定が profile にあるとベストですが、
-#    ここでは手動PATH設定を維持しつつ、不要ファイルの削除を徹底します。
-RUN wget -qO- http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz | tar -xz -C /tmp && \
-    cd /tmp/install-tl-* && \
-    perl ./install-tl --profile=/tmp/texlive.profile && \
-    tlmgr update --self && \
-    tlmgr install $(cat /tmp/texlive.packages) && \
-    rm -rf /tmp/install-tl-* /tmp/texlive.profile /tmp/texlive.packages && \
-    kanji-config-updmap-sys haranoaji && \
-    mktexfmt uplatex && \
-    mktexfmt lualatex && \
-    mktexfmt xelatex && \
-    fc-cache -fv
 
-COPY --chmod=755 ./fsroot/bin/ /root/bin/
-COPY ./fshome/ /home/
+COPY /fsroot/bin/ /root/bin/
+COPY /fshome/ /home/
+COPY /fstmp/ /tmp/
+
+ENV PATH="/root/bin:/opt/texlive/2025/bin/x86_64-linuxmusl:${PATH}"
+
+RUN chmod +x /root/bin/build && chmod +x /root/bin/template && chmod +x /root/bin/faq && \
+    apk add --no-cache nodejs npm perl wget fontconfig ca-certificates vim python3 py3-pip py3-pygments fzf
+
+# TeX Liveのインストール
+RUN wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz && \
+    tar -xzf install-tl-unx.tar.gz && \
+    cd install-tl-* && \
+    perl ./install-tl --profile=/tmp/texlive.profile && \
+    cd .. && \
+    rm -rf install-tl-* install-tl-unx.tar.gz
+RUN fc-cache -fv && mktexfmt uplatex.fmt && tlmgr update --self && tlmgr install $(cat /tmp/texlive.packages)
