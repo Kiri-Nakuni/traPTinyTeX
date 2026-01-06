@@ -1,68 +1,59 @@
 % このテンプレートに書いてあるパッケージは全て動作することを確認しています。
 %何か追加してほしいパッケージがあれば、tlmgr installでインストールして、docker commitで反映するか、
 %@Suima(traQ)あるいは@662607015_i_s_t(Twitter(X))、kirinakuni@gmail.comのいずれかまで連絡ください。
-
-\RequirePackage{plautopatch}%uplatexの問題を自動で修正するパッチ。これのおかげで闇鍋が成立します。
-\documentclass[a4paper,12pt,dvipdfmx]{jsarticle}
-\usepackage[T1]{fontenc}
+\documentclass[a4paper,xelatex,12pt,ja=standard]{bxjsarticle}
 \usepackage{lmodern}
-\usepackage[uplatex,deluxe]{otf}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{latexsym}
 \usepackage{mathtools}
-\usepackage{ascmac}
-\usepackage{fancybox}
-\usepackage{etoolbox}
-\usepackage{tikz}
-\usepackage{chemfig}
-\usepackage[%
-  unicode,%
-  bookmarksnumbered,%
-  hidelinks,%
-  setpagesize=false,
-]{hyperref}
-\usetikzlibrary{calc,arrows,patterns,backgrounds,positioning,%
-  fit,graphs,through,trees,plotmarks}
-\usepackage{tcolorbox}
-\tcbuselibrary{xparse,breakable,documentation,listings}
 \usepackage[version=4]{mhchem}
 \usepackage{physics2}
-\usepackage{bxtexlogo}
 \usephysicsmodule{xmat}
 \usephysicsmodule{ab}
 \usepackage{cmathbb}
+\usepackage{siunitx}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{ascmac}
+\usepackage{fancybox}
+\usepackage[dvipsnames,x11names]{xcolor}
+\usepackage{tikz}
+\usepackage{chemfig}
+\usepackage{circuitikz}
+\usepackage{tcolorbox}
 \usepackage{wrapfig}
 \usepackage[normalem]{ulem}
 \usepackage{titlepic}
-\usepackage[dvipsnames,x11names]{xcolor}
-\usepackage{mathrsfs}
-\usepackage{bm}
-\usepackage{listings,jvlisting}
-\usepackage{siunitx}
-\usepackage{circuitikz}
-\lstset{
-  basicstyle={\ttfamily},%
-  identifierstyle={\small},%
-  commentstyle={\smallitshape},%
-  keywordstyle={\small\bfseries},%
-  ndkeywordstyle={\small},%
-  stringstyle={\small\ttfamily},%
-  frame={tb},%
-  breaklines=true,%
-  columns=[l]{fullflexible},%
-  numbers=left,%
-  xrightmargin=0zw,%
-  xleftmargin=3zw,%
-  numberstyle={\scriptsize},%
-  stepnumber=1,%
-  numbersep=1zw,%
-  lineskip=-0.5ex,%
-}
+\usepackage{bxtexlogo}
+\usetikzlibrary{calc,arrows,patterns,backgrounds,positioning,%
+  fit,graphs,through,trees,plotmarks}
+\tcbuselibrary{xparse,breakable,documentation,listings}
+\bxtexlogoimport{*,**}
+\usepackage{etoolbox}
 \usepackage[figure,table]{totalcount}
-\usepackage[top=20truemm,bottom=20truemm,left=20truemm,right=20truemm]{geometry}
+\geometry{top=20truemm,bottom=20truemm,left=20truemm,right=20truemm}
 \usepackage{titlesec}
 \usepackage{multicol}
 \usepackage{float}
+\usepackage{listings} 
+\lstset{
+  basicstyle={\ttfamily},
+  identifierstyle={\small},
+  commentstyle={\small\itshape}
+  keywordstyle={\small\bfseries},
+  ndkeywordstyle={\small},
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},
+  numbers=left,
+  xrightmargin=0em,
+  xleftmargin=3em,
+  numberstyle={\scriptsize},
+  stepnumber=1,
+  numbersep=1em,
+  lineskip=-0.5ex,
+}
 \usepackage{minted}
 \setminted{
     frame=lines,
@@ -71,11 +62,15 @@
     baselinestretch=1.2,
     linenos,
     breaklines,
-    escapeinside=||
+    escapeinside=||,
+    showspaces=true
 }
 \usemintedstyle{vs}
 \usepackage{pythontex}
-\bxtexlogoimport{*,**}
+\usepackage{hyperref}
+\hypersetup{hidelinks,bookmarksnumbered}
+\setmonofont[BoldFont = HackGen-Bold.ttf]{HackGen-Regular.ttf}
+\setCJKmonofont[BoldFont = HackGen-Bold.ttf]{HackGen-Regular.ttf}
 \author{科学 太郎}
 \title{凄そうなタイトル}
 \date{良さそうな日付}

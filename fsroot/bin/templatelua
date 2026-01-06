@@ -41,7 +41,7 @@ else
     echo "failed to copy file"
     exit 1
 fi
-build "$final_target_file" 
+buildlua "$final_target_file" 
 
 if [ $? -eq 0 ]; then
     exit 0

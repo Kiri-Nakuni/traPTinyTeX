@@ -1,6 +1,6 @@
 {
     "name": "TrapTinyTeX LaTeX Environment",
-    "image": "kininakuni/traptinytex:latest",
+    "image": "kininakuni/traptinytex:full",
     "workspaceFolder": "/home",
     "customizations": {
         "vscode": {
@@ -27,20 +27,11 @@
                             "-silent",
                             "%DOC%"
                         ]
-                    },
-                    {
-                        "name": "latexmk_lualatex",
-                        "command": "latexmk",
-                        "args": [
-                            "-pdflua",
-                            "-silent",
-                            "%DOC%"
-                        ]
                     }
                 ],
                 "latex-workshop.latex.recipes": [
                     {
-                        "name": "Compile with uplatex",
+                        "name": "Compile with upLaTeX",
                         "tools": [
                             "latexmk_uplatex"
                         ]

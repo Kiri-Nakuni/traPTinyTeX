@@ -1,0 +1,39 @@
+#!/bin/sh
+
+DATA="1. TeXエンジンとは？|TeXコードを実行するインタプリタのことです。\
+TeXエンジンによって、それぞれ独自拡張があるので、区別する必要があります。
+2. TeXエンジンの種類は？|このシステムでは、e-upTeX, LuaTeX, XeTeX, \
+pdfTeXが使えます。
+3. どうやって実行するの？|このシステムでは、build <filename>とすると\
+upLaTeX, buildlua <filename>とするとLuaLaTeX, buildxe <filename>\
+とするとXeLaTeXでビルドが実行されます
+4. e-upTeXとupLaTeXの違いは？|e-upTeX上に、予めLaTeXという\
+マクロパッケージを読み込んだものがupLaTeXです。他のTeXエンジンでも同様です。
+5. テンプレートはどこから得られますか？|template <filename>とすると\
+upLaTeX用の、templatelua <filename>とするとLualatex用の、\
+templatexe <filename>とするとXeLaTeX用の日本語\
+テンプレートが出力されます。使い方はtemplateのそれと全て同じです。
+6. .latexmkrcって何？|LaTeX用のTeXソースは、複数回のビルドが必要なことが\
+多いですが、それを適切な回数こなしてくれるスクリプトであるlatexmkの設定\
+ファイルです。"
+
+
+selected_line=$(echo "$DATA" | fzf \
+    --delimiter='|' \
+    --with-nth=1 \
+    --header="[ FAQ System - 矢印キーで選択 / Enterで決定 ]" \
+    --reverse \
+    --preview "echo {2}" \
+    --preview-window=up:4:wrap \
+)
+
+if [ -z "$selected_line" ]; then
+    exit 0
+fi
+
+question=$(echo "$selected_line" | cut -d'|' -f1)
+answer=$(echo "$selected_line" | cut -d'|' -f2)
+
+echo "Q: $question"
+echo -e "A: $answer"
+exit 0
